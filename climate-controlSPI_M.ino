@@ -50,7 +50,7 @@ void loop()
 
   // если прошёл заданный интервал времени
   // считывам показания датчика
-  if (millis() - currentMillis > 10000) {
+  if (millis() - currentMillis > 60000) {
     // state = !state;
     currentMillis = millis();
     dht.read();
@@ -78,14 +78,14 @@ void loop()
   // иначе выключаем реле
   //digitalWrite(RELAY_1_PIN, LOW);
   //}
-  // если влажность стала больше 80 %
-  if (humidity > 80) {
+  // если влажность стала больше 70 %
+  if (humidity > 70) {
     // включаем реле 1
     digitalWrite(RELAY_1_PIN, HIGH);
   } else {
     // иначе выключаем реле 1
     digitalWrite(RELAY_1_PIN, LOW);
   }
-  // ждём 10 секунд
-  delay(10000);
+  // ждём 1 минуту
+  delay(60000);
 }
